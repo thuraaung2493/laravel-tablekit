@@ -1,0 +1,12 @@
+{
+  "name": "tablekit/local-demo",
+  "type": "project",
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "laravel/framework": "^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0 || ^12.0 || ^13.0",
+    "thuraaung/tablekit": "@dev"
+  },
+  "repositories": [{"type": "path", "url": "..", "options": {"symlink": true}}],
+  "autoload": {"psr-4": {"TableKitDemo\\": "app/"}},
+  "config": {"allow-plugins": false}
+}

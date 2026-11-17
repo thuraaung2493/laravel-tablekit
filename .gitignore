@@ -1,0 +1,15 @@
+/vendor/
+/node_modules/
+/composer.lock
+/.phpunit.result.cache
+/.phpunit.cache/
+/test-results/
+/playwright-report/
+/.compat/
+/demo/vendor/
+/demo/.env
+/demo/database/*.sqlite
+/demo/storage/
+/demo/bootstrap/cache/*.php
+/demo/public/vendor/
+/demo/public/engines/

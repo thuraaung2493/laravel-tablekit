@@ -1,0 +1,112 @@
+.tk { --tk-border: #e1e5eb; --tk-muted: #586578; --tk-accent: #254fc1; color: #172234; background: #fff; border: 1px solid var(--tk-border); border-radius: .65rem; font: 14px/1.5 system-ui, sans-serif; margin-block: 1rem; overflow: hidden; }
+.tk *, .tk *::before, .tk *::after { box-sizing: border-box; }
+.tk [hidden] { display: none !important; }
+.tk .tk-heading { padding: 1rem 1.25rem; border-bottom: 1px solid var(--tk-border); }
+.tk h2 { font-size: 1.2rem; margin: 0; }
+.tk .tk-heading p { color: var(--tk-muted); margin: .25rem 0 0; }
+.tk .tk-toolbar { display: flex; align-items: end; flex-wrap: wrap; gap: .8rem; padding: .85rem 1.25rem; }
+.tk label { display: flex; flex-direction: column; gap: .2rem; font-size: .85rem; }
+.tk input:not([type=checkbox]), .tk select, .tk button, .tk .tk-action { font: inherit; border: 1px solid var(--tk-border); background: #fff; color: inherit; padding: .45rem .65rem; border-radius: .35rem; }
+.tk select { -webkit-appearance: none; appearance: none; padding-right: 2rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23586578' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .7rem center; background-size: .75rem; }
+.tk button, .tk .tk-action { cursor: pointer; text-decoration: none; display: inline-block; }
+.tk button:hover, .tk .tk-action:hover { background: #f0f4fc; }
+.tk :focus-visible { outline: 2px solid var(--tk-accent); outline-offset: 2px; }
+.tk .tk-search { flex: 1 1 15rem; max-width: 30rem; }
+.tk .tk-body, .tk .tk-main { min-width: 0; }
+.tk .tk-scroll { overflow-x: auto; padding: 0 1.25rem; }
+.tk table { border-collapse: collapse; width: 100%; }
+.tk table th, .tk table td { border-bottom: 1px solid var(--tk-border); padding: .5rem .75rem; text-align: left; vertical-align: middle; }
+.tk table th { font-size: .8rem; color: var(--tk-muted); background: #f7f9fc; }
+.tk.tk-density-comfortable table th, .tk.tk-density-comfortable table td { padding: .9rem 1rem; }
+.tk table .tk-align-right { text-align: right; }
+.tk table .tk-align-center { text-align: center; }
+.tk .tk-status { color: var(--tk-muted); margin: 0 1.25rem; }
+.tk .tk-error { margin: .5rem 1.25rem; padding: .75rem; background: #fff0f0; color: #9b2020; border-radius: .35rem; }
+.tk .tk-footer, .tk .dt-layout-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .7rem; padding: .8rem 1.25rem; }
+.tk .paginate_button, .tk .dt-paging-button { display: inline-block; padding: .35rem .65rem; margin: .1rem; border: 1px solid var(--tk-border); border-radius: .25rem; cursor: pointer; vertical-align: middle; }
+.tk .dataTables_paginate .ellipsis, .tk .dt-paging .ellipsis { display: inline-block; vertical-align: middle; padding: 0 .3rem; }
+.tk .paginate_button.current, .tk .dt-paging-button.current { background: #edf2ff; color: var(--tk-accent); }
+.tk .disabled { opacity: .5; cursor: default; }
+.tk .tk-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.tk .tk-filters-panel { padding: 1rem 1.25rem; background: #f7f9fc; border-block: 1px solid var(--tk-border); }
+.tk .tk-filter-fields { display: flex; align-items: end; flex-wrap: wrap; gap: .8rem; }
+.tk .tk-selection { display: flex; align-items: center; gap: .7rem; padding: .6rem 1.25rem; }
+.tk .tk-row-actions { display: flex; gap: .4rem; align-items: center; white-space: nowrap; }
+.tk .tk-row-actions details { position: relative; }
+.tk .tk-row-actions summary { cursor: pointer; padding: .3rem .6rem; }
+.tk .tk-action-menu { position: fixed; z-index: 5; right: 0; padding: .4rem; border: 1px solid var(--tk-border); background: white; box-shadow: 0 3px 14px #17223422; }
+.tk .tk-action-menu > * { display: block; margin: .2rem; }
+.tk.tk-filters-sidebar .tk-body { display: flex; }
+.tk.tk-filters-sidebar .tk-filters-panel { width: 15rem; flex-shrink: 0; }
+.tk.tk-filters-sidebar .tk-main { flex: 1; }
+.tk.tk-filters-sidebar .tk-filter-fields { flex-direction: column; align-items: stretch; }
+@media (max-width: 640px) {
+  .tk .tk-toolbar { align-items: stretch; }
+  .tk .tk-search { max-width: none; flex-basis: 100%; }
+  .tk.tk-filters-sidebar .tk-body { display: block; }
+  .tk.tk-filters-sidebar .tk-filters-panel { width: 100%; }
+  .tk.tk-filters-sidebar .tk-filters-panel:not(.tk-open) { display: none; }
+}
+.tk .dt-layout-table { display: block; padding: 0; }
+.tk .dt-layout-full { width: 100%; min-width: 0; }
+.tk .tk-row-actions .tk-action, .tk .tk-row-actions button { padding: .2rem .45rem; font-size: .85rem; }
+.tk th[aria-sort] { cursor: pointer; }
+.tk th[aria-sort=ascending]::after { content: ' ↑'; }
+.tk th[aria-sort=descending]::after { content: ' ↓'; }
+.tk th.sorting::after { content: ' ↕'; opacity: .6; }
+.tk .tk-action-menu form { margin: .2rem; }
+.tk .tk-action-menu button { width: 100%; text-align: left; }
+.tk fieldset { border: 1px solid var(--tk-border); border-radius: .35rem; }
+.tk button:disabled { opacity: .5; cursor: not-allowed; }
+
+/* Compact table controls and a floating filter panel. */
+.tk { overflow: visible; box-shadow: 0 1px 3px #1722340d; }
+.tk .tk-heading { padding: 1.2rem 1.5rem; }
+.tk .tk-heading h2 { font-size: 1.1rem; font-weight: 650; }
+.tk .tk-toolbar { align-items: end; padding: 1rem 1.5rem; gap: .65rem; }
+.tk .tk-search { max-width: 24rem; }
+.tk .tk-toolbar label { color: var(--tk-muted); font-weight: 600; }
+.tk .tk-toolbar input, .tk .tk-toolbar select { color: #172234; font-weight: 400; }
+.tk .tk-toolbar > .tk-action:first-of-type { background: var(--tk-accent); border-color: var(--tk-accent); color: #fff; font-weight: 600; }
+.tk .tk-toolbar > .tk-action:first-of-type:hover { background: #1b3e9e; }
+.tk .tk-filter-badge { background: #e9eefb; color: #3153a2; border-radius: 1rem; font-size: .75rem; padding: .1rem .4rem; margin-left: .2rem; }
+.tk .tk-body { position: relative; }
+.tk.tk-filters-collapsible .tk-filters-panel { position: absolute; top: 0; right: 1.5rem; z-index: 20; width: 20rem; max-width: calc(100% - 2rem); padding: 0; background: #fff; border: 1px solid var(--tk-border); border-radius: .55rem; box-shadow: 0 12px 32px #17223426; }
+.tk.tk-toolbar-bottom.tk-filters-collapsible .tk-filters-panel { top: auto; bottom: 0; }
+.tk .tk-filter-heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .8rem 1rem; border-bottom: 1px solid var(--tk-border); }
+.tk .tk-filter-heading strong { font-size: .9rem; }
+.tk .tk-filter-heading button { border: 0; padding: .2rem; color: var(--tk-accent); font-size: .8rem; }
+.tk.tk-filters-collapsible .tk-filter-fields { display: flex; flex-direction: column; align-items: stretch; padding: 1rem; }
+.tk .tk-filter-fields label { color: var(--tk-muted); font-weight: 600; }
+.tk .tk-filter-fields select, .tk .tk-filter-fields input { color: #172234; font-weight: 400; }
+.tk .tk-selection { margin: 0 1.5rem .8rem; padding: .6rem .8rem; background: #f1f5ff; border-radius: .4rem; color: #25427e; }
+.tk table th { background: #f7f8fa; text-transform: uppercase; letter-spacing: .035em; }
+.tk table tbody tr:hover { background: #f8faff; }
+.tk .tk-row-actions summary { list-style: none; border-radius: .3rem; color: var(--tk-muted); letter-spacing: .1em; }
+.tk .tk-row-actions summary::-webkit-details-marker { display: none; }
+.tk .tk-row-actions summary:hover { background: #f0f4fc; }
+.tk .tk-action-menu { min-width: 8rem; border-radius: .4rem; }
+.tk .tk-action-menu .tk-action, .tk .tk-action-menu button { border: 0; width: 100%; text-align: left; }
+.tk .dt-layout-row:not(.dt-layout-table), .tk .tk-footer { border-top: 1px solid var(--tk-border); color: var(--tk-muted); font-size: .85rem; }
+.tk-confirm { width: min(25rem, calc(100% - 2rem)); border: 1px solid #e1e5eb; border-radius: .65rem; padding: 1.4rem; color: #172234; box-shadow: 0 20px 60px #17223433; font: 14px/1.5 system-ui, sans-serif; }
+.tk-confirm::backdrop { background: #17223480; }
+.tk-confirm h2 { margin: 0 0 .5rem; font-size: 1.1rem; }
+.tk-confirm p { margin: 0; color: #586578; }
+.tk-confirm-actions { display: flex; justify-content: flex-end; gap: .5rem; margin-top: 1.25rem; }
+.tk-confirm-actions button { padding: .5rem .9rem; font: inherit; border: 1px solid #e1e5eb; border-radius: .35rem; background: #fff; cursor: pointer; }
+.tk-confirm-actions .tk-confirm-primary { background: #254fc1; border-color: #254fc1; color: #fff; }
+.tk-confirm-actions button:focus-visible { outline: 2px solid #254fc1; outline-offset: 2px; }
+@media (max-width: 640px) {
+  .tk.tk-filters-collapsible .tk-filters-panel { left: 1rem; right: 1rem; width: auto; max-width: none; }
+  .tk .tk-toolbar { padding: .85rem 1rem; }
+  .tk .tk-selection { margin-inline: 1rem; flex-wrap: wrap; }
+}
+
+/* Keep reset controls aligned with the filters in each layout. */
+.tk.tk-filters-inline .tk-filter-fields { gap: .75rem 1rem; }
+.tk.tk-filters-inline .tk-filters-reset { flex: 0 0 auto; }
+.tk.tk-filters-sidebar .tk-filter-heading { padding: 0 0 .75rem; margin-bottom: .85rem; }
+.tk.tk-filters-sidebar .tk-filter-footer { margin-top: 1rem; }
+.tk.tk-filters-sidebar .tk-filters-reset { width: 100%; }
+.tk .tk-filters-reset { color: var(--tk-muted); font-weight: 600; }
+.tk .tk-filters-reset:hover { color: var(--tk-accent); border-color: #becbf0; }

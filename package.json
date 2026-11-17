@@ -1,0 +1,19 @@
+{
+  "name": "tablekit-development",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/js/*.test.cjs",
+    "test:browser": "playwright test",
+    "check": "npm test && npm run test:browser",
+    "demo:setup": "php scripts/setup-demo.php",
+    "test:demo": "TABLEKIT_DEMO_TEST=1 playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "jquery": "3.7.1",
+    "dt110": "npm:datatables.net@1.10.25",
+    "dt113": "npm:datatables.net@1.13.11",
+    "dt2": "npm:datatables.net@2.3.8",
+    "dt3": "npm:datatables.net@3.1.5"
+  }
+}

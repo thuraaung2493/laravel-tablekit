@@ -1,0 +1,12 @@
+/.github export-ignore
+/.compat export-ignore
+/tests export-ignore
+/scripts export-ignore
+/demo export-ignore
+/node_modules export-ignore
+/vendor export-ignore
+/composer.lock export-ignore
+/package-lock.json export-ignore
+/playwright.config.cjs export-ignore
+/phpunit.xml export-ignore
+/test-results export-ignore

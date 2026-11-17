@@ -1,0 +1,22 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Database\Eloquent\Builder;
+use Thuraaung\TableKit\Columns\Column;
+use Thuraaung\TableKit\DataTable;
+
+class {{class}} extends DataTable
+{
+    public function query(): Builder
+    {
+        return \{{model}}::query();
+    }
+
+    public function columns(): array
+    {
+        return [
+            Column::make('id')->sortable(),
+        ];
+    }
+}

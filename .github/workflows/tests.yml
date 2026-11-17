@@ -1,0 +1,54 @@
+name: Tests
+on: [push, pull_request]
+jobs:
+  php:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {php: '7.4', laravel: '7'}
+          - {php: '7.4', laravel: '8'}
+          - {php: '8.0', laravel: '9'}
+          - {php: '8.1', laravel: '10'}
+          - {php: '8.2', laravel: '11'}
+          - {php: '8.2', laravel: '12'}
+          - {php: '8.3', laravel: '13'}
+          - {php: '8.5', laravel: '13'}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, dom, sqlite3, pdo_sqlite
+          tools: composer:v2
+          coverage: none
+      - run: php scripts/prepare-matrix.php ${{ matrix.laravel }}
+      # Old framework security advisories must not prevent isolated compatibility
+      # tests. This does not change security policy for consuming applications.
+      - run: composer update --working-dir=.compat/laravel${{ matrix.laravel }} --prefer-dist --no-interaction --no-security-blocking
+      - run: php scripts/lint.php
+      - run: php .compat/laravel${{ matrix.laravel }}/vendor/bin/phpunit --bootstrap .compat/laravel${{ matrix.laravel }}/vendor/autoload.php
+      - run: composer validate --strict --no-check-lock
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx --no-install playwright install --with-deps chromium
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          extensions: mbstring, dom, sqlite3, pdo_sqlite
+          tools: composer:v2
+          coverage: none
+      - run: composer update --with orchestra/testbench:^5.0 --with laravel/framework:^7.0 --prefer-dist --no-interaction --no-security-blocking
+      - run: php scripts/setup-demo.php
+      - run: php demo/artisan config:cache
+      - run: php demo/artisan route:cache
+      - run: npm test
+      - run: npm run test:demo
